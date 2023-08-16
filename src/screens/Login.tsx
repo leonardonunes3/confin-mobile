@@ -52,7 +52,7 @@ export function Login() {
                                 className="font-regular text-base ml-4 text-primary"
                                 onChangeText={setPassword}
                                 value={password}
-                                placeholder="●●●●●●●●●●●●"
+                                placeholder="••••••••••••"
                                 placeholderTextColor={'#4A7729'}
                                 secureTextEntry={hidden}
                             />
