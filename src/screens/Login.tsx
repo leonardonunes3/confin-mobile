@@ -3,19 +3,21 @@ import { View, Image, TextInput, TouchableOpacity, Text, Button } from "react-na
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
-export function Home() {
+export function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [hidden, setHidden] = useState(true);
 
-    let iconName;
-
-    function handleToggleHiddenPassword() {
+    function handleToggleHiddenPassword(): void {
         setHidden(!hidden);
     }
 
     function handleForgotPassword(): void {
+        throw new Error("Function not implemented.");
+    }
+
+    function handleSignUp(): void {
         throw new Error("Function not implemented.");
     }
 
@@ -89,11 +91,16 @@ export function Home() {
                 </View>
                 <View className="mt-2 flex-row justify-center">
                     <Text className="text-xs text-primary">
-                        Não tem uma conta?
+                        Não tem uma conta?{` `}
                     </Text>
-                    <Text className="text-xs text-link underline">
-                        {` `}Inscreva-se
-                    </Text>
+                    <TouchableOpacity
+                        onPress={handleSignUp}
+                        activeOpacity={0.7}
+                    >
+                        <Text className="text-xs text-link underline">
+                            Inscreva-se
+                        </Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>

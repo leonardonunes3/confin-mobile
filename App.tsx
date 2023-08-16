@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useFonts, Roboto_400Regular, Roboto_700Bold, Roboto_300Light, Roboto_500Medium } from '@expo-google-fonts/roboto';
-import { Home } from './src/screens/Home';
+import { Login } from './src/screens/Login';
 import { Loading } from './src/screens/Loading';
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
 
   return (
     <>
-      <Home/>
+      <Login/>
       <StatusBar style="auto" />
     </>
   );
