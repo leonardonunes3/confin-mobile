@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { View, Image, TextInput, TouchableOpacity, Text, Button } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../App";
+
+type LoginProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
 
-export function Login() {
+export function Login({ route, navigation } : LoginProps) {
+    
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -18,7 +23,7 @@ export function Login() {
     }
 
     function handleSignUp(): void {
-        throw new Error("Function not implemented.");
+        navigation.navigate('SignUp');
     }
 
     return (
