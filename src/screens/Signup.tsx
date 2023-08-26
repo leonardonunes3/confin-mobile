@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { View, Image, TouchableOpacity, Text } from "react-native";
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
+
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../App";
+
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 import { Input } from "../components/Input/Input";
 
@@ -15,10 +18,22 @@ export function SignUp({ navigation } : SignUpProps) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    function handleBackButton(): void {
+        navigation.navigate('Login');
+    }
+
     return (
         <View className="flex-1 bg-background">
             <View className="h-1/3 z-0">
                 <Image source={require('../assets/graphs.png')} resizeMode="stretch" className='h-full w-full'/>
+            </View>
+            <View className="absolute z-10 top-12 left-8">
+                <TouchableOpacity 
+                    activeOpacity={0.7}
+                    onPress={handleBackButton}
+                >
+                    <MaterialIcons name="arrow-back-ios" size={24} color="white" />
+                </TouchableOpacity>
             </View>
             <View className="bg-background h-3/4 rounded-t-large absolute z-10 bottom-0 left-0 w-full">
                 <View className="h-12 ml-9 mt-20">
