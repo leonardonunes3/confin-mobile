@@ -1,22 +1,17 @@
 import { useState } from "react";
-import { View, Image, TextInput, TouchableOpacity, Text, Button } from "react-native";
+import { View, Image, TextInput, TouchableOpacity, Text } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../App";
+
+import { Input } from "../components/Input/Input";
 
 type LoginProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
 
 export function Login({ route, navigation } : LoginProps) {
-    
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [hidden, setHidden] = useState(true);
-
-    function handleToggleHiddenPassword(): void {
-        setHidden(!hidden);
-    }
 
     function handleForgotPassword(): void {
         throw new Error("Function not implemented.");
@@ -36,40 +31,24 @@ export function Login({ route, navigation } : LoginProps) {
                     <Image source={require('../assets/Logo.png')} className="w-40 h-40"/>
                 </View>
                 <View className="h-12 ml-9 mr-4 mt-12 justify-center">
-                    <View className="h-12 border-b border-primary justify-center">
-                        <View className="flex flex-row items-center">
-                            <MaterialCommunityIcons name="email-outline" size={20} color="#4A7729"/>
-                            <TextInput
-                                className="font-regular text-base ml-4 text-primary"
-                                onChangeText={setEmail}
-                                value={email}
-                                placeholder="email@email.com"
-                                placeholderTextColor={'#4A7729'}
-                            />
-                        </View>
-                    </View>
+                    <Input      
+                        Icon={ <MaterialCommunityIcons name="email-outline" size={20} color="#4A7729"/> } 
+                        onChangeText={setEmail}
+                        value={email}
+                        placeholder="email@email.com"
+                        placeholderTextColor={'#4A7729'}
+                        secret={false} 
+                    />
                 </View>
                 <View className="h-12 ml-9 mr-4 mt-6 justify-center">
-                    <View className="h-12 border-b border-primary justify-center">
-                        <View className="flex flex-row items-center">
-                            <MaterialCommunityIcons name="lock-outline" size={20} color="#4A7729"/>
-                            <TextInput
-                                className="font-regular text-base ml-4 text-primary"
-                                onChangeText={setPassword}
-                                value={password}
-                                placeholder="••••••••••••"
-                                placeholderTextColor={'#4A7729'}
-                                secureTextEntry={hidden}
-                            />
-                            <TouchableOpacity 
-                                className="flex-row-reverse flex-1"
-                                onPress={handleToggleHiddenPassword}
-                                activeOpacity={0.7}
-                            >
-                                { hidden ? <MaterialCommunityIcons name='eye-off-outline' size={20} color="#4A7729"/> : <MaterialCommunityIcons name='eye-outline' size={20} color="#4A7729"/>} 
-                            </TouchableOpacity>
-                        </View>
-                    </View>
+                    <Input      
+                        Icon={ <MaterialCommunityIcons name="lock-outline" size={20} color="#4A7729"/> } 
+                        onChangeText={setPassword}
+                        value={password}
+                        placeholder="••••••••••••"
+                        placeholderTextColor={'#4A7729'} 
+                        secret={true}
+                    />
                 </View>
                 <View className="h-4 mx-4 mt-4">
                     <View className="flex-1 flex-row-reverse items-center">

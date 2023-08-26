@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { useFonts, Roboto_400Regular, Roboto_700Bold, Roboto_300Light, Roboto_500Medium } from '@expo-google-fonts/roboto';
 
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Login } from './src/screens/Login';
 import { Loading } from './src/screens/Loading';
