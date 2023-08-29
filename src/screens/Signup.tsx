@@ -8,7 +8,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
-import { Input } from "../components/Input/Input";
+import { Input } from "../components/Input";
 
 type SignUpProps = NativeStackScreenProps<RootStackParamList, 'SignUp'>;
 

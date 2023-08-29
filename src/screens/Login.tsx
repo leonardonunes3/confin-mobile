@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../App";
 
-import { Input } from "../components/Input/Input";
+import { Input } from "../components/Input";
 
 type LoginProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
@@ -19,6 +19,10 @@ export function Login({ navigation } : LoginProps) {
 
     function handleSignUp(): void {
         navigation.navigate('SignUp');
+    }
+
+    function handleLogin(): void {
+        navigation.navigate('Home');
     }
 
     return (
@@ -67,6 +71,7 @@ export function Login({ navigation } : LoginProps) {
                     <TouchableOpacity 
                         className="bg-primary justify-center items-center flex-1 rounded-medium"
                         activeOpacity={0.7}
+                        onPress={handleLogin}
                     >
                         <Text className="text-white font-regular text-base">
                             LOGIN
