@@ -7,10 +7,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Login } from './src/screens/Login';
 import { Loading } from './src/screens/Loading';
 import { SignUp } from './src/screens/Signup';
+import { Home } from './src/screens/Home';
 
 export type RootStackParamList = {
   Login: undefined;
   SignUp: undefined;
+  Home: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -33,9 +35,10 @@ export default function App() {
         <Stack.Navigator initialRouteName='Login'>
           <Stack.Screen name='Login' component={Login} options={{headerShown: false}}/>
           <Stack.Screen name='SignUp' component={SignUp} options={{headerShown: false}}/>
+          <Stack.Screen name='Home' component={Home} options={{headerShown: false}}/>
         </Stack.Navigator>
       </NavigationContainer>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </>
   );
 }
