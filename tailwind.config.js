@@ -9,7 +9,16 @@ module.exports = {
       colors: {
         background: '#FFFFFF',
         primary: '#4A7729',
-        link: '#23BDFF'
+        secondary: "#5D8F27",
+        link: '#23BDFF',
+        chartColor1: "#CD1C1C",
+        chartColor2: "#294077",
+        chartColor3: "#ED7547",
+        chartColor4: "#93471B",
+        chartColor5: "#85B6FF",
+        chartColor6: "#FBD203",
+        chartColor7: "#A3A3A3",
+        chartColor8: "#4ECB71",
       },
       fontFamily: {
         light: 'Roboto_300Light',
@@ -19,8 +28,9 @@ module.exports = {
       }
     },
     borderRadius: {
-      'medium': '32px',
-      'large': '64px',
+      'small': 8,
+      'medium': 32,
+      'large': 64,
     },
   },
   plugins: []
