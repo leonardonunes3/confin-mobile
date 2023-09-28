@@ -11,6 +11,7 @@ module.exports = {
         primary: '#4A7729',
         secondary: "#5D8F27",
         link: '#23BDFF',
+        gray: '#D9D9D9',
         chartColor1: "#CD1C1C",
         chartColor2: "#294077",
         chartColor3: "#ED7547",

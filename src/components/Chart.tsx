@@ -26,9 +26,9 @@ export function Chart(chartProps: ChartProps) {
                     colors.map((_, index) => {
                         const style = `ml-2 w-4 h-4 bg-chartColor${index+1}`
                         return (
-                            <View className="flex-row basis-1/3 mb-1">
-                                <View className={style} key={index+1} />
-                                <Text className="font-bold text-xs text-black" key={index+10}> { labels.at(index) } </Text>
+                            <View className="flex-row basis-1/3 mb-1" key={index}>
+                                <View className={style} key={index+10} />
+                                <Text className="font-bold text-xs text-black" key={index+20}> { labels.at(index) } </Text>
                             </View>
                         )
                     }) 
