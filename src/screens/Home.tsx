@@ -4,6 +4,7 @@ import { Chart } from "../components/Chart";
 import { MaterialIcons, MaterialCommunityIcons, Ionicons, Octicons } from '@expo/vector-icons';
 import React, { useState } from "react";
 import { RoundedButton } from "../components/RoundedButton";
+import { CustomModal } from "../components/CustomModal";
 
 const months = ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO",
     "JUNHO", "JULHO", "AGOSTO", "SETEMBRO", "OUTUBRO",
@@ -20,6 +21,8 @@ export function Home() {
 
     const [widthPercentage , setwidthPercentage] = useState<DimensionValue>("50%");  
     const [monthIndex, setMonthIndex] = useState(currentDay.getMonth());
+    const [modalVisible, setmodalVisible] = useState(false);
+    const [description, setDescription] = useState("");
 
     function handleArrowBack(): void {
         if(monthIndex > 0) {
@@ -33,8 +36,20 @@ export function Home() {
         }
     }
 
+    function handleModalChange(): void {
+        setmodalVisible(!modalVisible)
+    }
+
     return (
         <View className="flex-1 bg-background">
+            <CustomModal 
+                onModalChange={handleModalChange} 
+                modalVisible={modalVisible} 
+                onChangeText={setDescription}
+                value={description}
+                placeholder="descrição"
+                placeholderTextColor={'#4A7729'}
+            />
             <View className="flex-row w-full h-28 bg-primary rounded-br-medium align-middle">
                 <View className="h-6 mt-14 ml-4">
                     <Ionicons name="reorder-four-outline" size={24} color="white" />
@@ -100,19 +115,23 @@ export function Home() {
             </View>
             <View className="flex-row mt-8">
                 <View className="ml-4">
-                    <RoundedButton description="Cadastrar despesa" icon={ <MaterialCommunityIcons name="currency-usd" size={24} color="white" /> }/>
+                    <RoundedButton 
+                        description="Cadastrar despesa" 
+                        icon={<MaterialCommunityIcons name="currency-usd" size={24} color="white" /> }
+                        onClick={handleModalChange}
+                    />
                 </View>
                 <View className="ml-4">
-                    <RoundedButton description="Cadastrar receita" icon={ <MaterialCommunityIcons name="currency-usd" size={24} color="white" /> }/>
+                    <RoundedButton description="Cadastrar receita" icon={ <MaterialCommunityIcons name="currency-usd" size={24} color="white" /> } onClick={handleModalChange}/>
                 </View>
                 <View className="ml-4">
-                    <RoundedButton description="Extrato do mês" icon={ <MaterialIcons name="request-quote" size={24} color="white" /> }/>
+                    <RoundedButton description="Extrato do mês" icon={ <MaterialIcons name="request-quote" size={24} color="white" /> } onClick={handleModalChange}/>
                 </View>
                 <View className="ml-4">
-                    <RoundedButton description="Editar mês" icon={ <MaterialIcons name="edit" size={24} color="white" /> }/>
+                    <RoundedButton description="Editar mês" icon={ <MaterialIcons name="edit" size={24} color="white" /> } onClick={handleModalChange}/>
                 </View>
                 <View className="ml-2">
-                    <RoundedButton extended description="Configurações" icon={ <Octicons name="gear" size={24} color="white" /> }/>
+                    <RoundedButton extended description="Configurações" icon={ <Octicons name="gear" size={24} color="white" /> } onClick={handleModalChange}/>
                 </View>
             </View>
             <View className="mt-10 items-center">
